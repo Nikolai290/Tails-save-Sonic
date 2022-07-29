@@ -11,7 +11,14 @@ namespace Shooting
 
         public void Shoot()
         {
-            var projectile = Instantiate(_gunCharacteristics.ProjectilePrefab, Trunk);
+            var projectile = Instantiate(
+                _gunCharacteristics.ProjectilePrefab, 
+                Trunk.position,
+                Quaternion.identity);
+            projectile.GetComponent<ProjectileBehaviour>().Init(
+                _gunCharacteristics.Damage,
+                _gunCharacteristics.GunSetting.ProjectileLifetime,
+                _gunCharacteristics.GunSetting.Speed);
         }
         
         private void Awake()

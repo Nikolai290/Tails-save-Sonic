@@ -5,18 +5,21 @@ namespace Shooting
 {
     public class GunCharacteristics
     {
-        private GunSetting GunSetting { get; set; }
-        private int Projectiles { get; set; }
-        private int Damage { get; set; }
-        private float Speed { get; set; }
-        private float RateOfFire { get; set; }
-        private int Level { get; set; }
+        public GunSetting GunSetting { get; private set; }
+        public int Projectiles { get; private set; }
+        public int Damage { get; private set; }
+        public float Speed { get; private set; }
+        public float RateOfFire { get; private set; }
+        public int Level { get; private set; }
 
         public GameObject ProjectilePrefab => GunSetting.ProjectilePrefab;
 
         public Vector3[] GetGoals(Vector3 centralGoal)
         {
-            
+            var goals = new Vector3[Projectiles];
+            goals[0] = centralGoal;
+
+            return goals;
         }
 
         public GunCharacteristics(GunSetting newGun)

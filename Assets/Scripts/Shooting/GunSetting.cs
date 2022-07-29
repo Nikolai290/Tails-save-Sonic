@@ -6,6 +6,7 @@ namespace Shooting
     public class GunSetting : ScriptableObject
     {
         public GameObject ProjectilePrefab;
+        public float ProjectileLifetime;
         public int Projectiles;
         public int MaxProjectiles;
         public int StepProjectiles;
